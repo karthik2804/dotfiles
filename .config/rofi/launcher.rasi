@@ -1,0 +1,10 @@
+configuration {
+	location: 0;
+	hide-scrollbar: true;
+	font: "System San Francisco Display Regular 10";
+	color-normal: "argb:031d1f21, #f3f4f5, argb:031d1f21, argb:031d1f21, #117655";
+	color-urgent: "argb:031d1f21, #f3f4f5, argb:bc303541, argb:031d1f21, #9575cd";
+	color-active: "argb:030f0f0f, #f3f4f5, argb:03ff1f21, argb:031d1f21, #9575cd";
+	color-window: "argb:c80f0f0f, #0f0f0f, #1d1f21";
+}
+

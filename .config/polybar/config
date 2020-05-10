@@ -1,0 +1,200 @@
+[global/wm]
+margin-bottom = 0
+margin-top = 0
+
+[color]
+bg = #0F0F0F
+fg = #d8d8d8
+ac = #117655
+mf = #0C2220
+red = #e53935
+
+[bar/main]
+monitor-strict = false
+override-redirect = false
+bottom = false
+fixed-center = true
+width = 100%
+height = 40
+offset-x = 0%
+offset-y = 0%
+background = ${color.bg}
+foreground = ${color.fg}
+overline-size = 6
+underline-size = 6
+overline-color = ${color.bg}
+underline-color = ${color.bg}
+padding = 0
+module-margin-left = 0
+module-margin-right = 0
+
+
+font-0=SF Mono:size=11:antialias=true;3
+font-1=FontAwesome5Free:style=Regular:size=10:antialias=true;3
+font-2=FontAwesome5Free:style=Solid:size=10:antialias=true;3
+font-3=IPAGothic:style=Regular:size=11:antialias=true;3
+
+modules-left = launcher i3 
+modules-center = pulseaudio time battery
+modules-right = play play-title wired-network wireless-network sysmenu 
+
+dim-value = 1.0
+
+
+[module/launcher]
+type = custom/text
+content = 
+content-background = ${color.bg}
+content-foreground = ${color.fg}
+content-padding = 4
+click-left = ~/.config/polybar/scripts/launcher
+
+[module/i3]
+type = internal/i3
+index-sort = true
+wrapping-scroll = false
+reverse-scroll = false
+strip-wsnumbers = true
+ws-icon-0 = 1: Terminal;
+ws-icon-1 = 2: Browser;
+ws-icon-2 = 3: IDE;
+ws-icon-default = 
+format = <label-state>
+format-background = ${color.mf}
+format-underline = ${color.bg}
+format-overline = ${color.bg}
+format-padding = 2
+label-focused = %icon%
+label-focused-foreground = ${color.ac}
+label-focused-background = ${color.mf}
+label-unfocused = %icon%
+label-unfocused-background = ${color.mf}
+label-urgent = %icon%
+label-urgent-foreground = ${color.red}
+label-urgent-background = ${color.mf}
+label-visible = %icon%
+label-visible-foreground = ${color.fg}
+label-visible-background = ${color.mf}
+label-focused-padding = 1
+label-urgent-padding = 1
+label-unfocused-padding = 1
+label-visible-padding = 1
+
+[module/time]
+type = internal/date
+interval = 10
+format-margin = 2
+time = "%H:%M"
+date = "%d %b"
+label =%date%, %time%
+label-foreground = ${color.fg}
+label-background = ${color.bg}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 98%
+time-format = %H:%M
+format-charging = CHR <label-charging>
+format-charging-background = ${color.mf}
+format-charging-underline = ${color.bg}
+format-charging-overline = ${color.bg}
+format-charging-padding = 2
+format-charging-margin = 2
+format-discharging = BAT <label-discharging>
+format-discharging-background = ${color.mf}
+format-discharging-underline = ${color.bg}
+format-discharging-overline = ${color.bg}
+format-discharging-padding = 2
+format-discharging-margin = 2
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = Fully Charged
+label-full-background = ${color.mf}
+label-full-underline = ${color.bg}
+label-full-overline = ${color.bg}
+label-full-padding = 2
+label-full-margin = 2
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = false
+format-volume = VOL <label-volume>
+format-volume-background = ${color.mf}
+format-volume-underline = ${color.bg}
+format-volume-overline = ${color.bg}
+format-volume-padding = 2
+format-volume-margin = 2
+label-volume = %percentage%%
+format-muted-background = ${color.mf}
+format-muted-underline = ${color.bg}
+format-muted-overline = ${color.bg}
+format-muted-padding = 2
+format-muted-margin = 2
+format-muted-prefix = 
+label-muted = "MUTED"
+label-muted-foreground = ${color.ac}
+click-right = pavucontrol &
+
+[module/wired-network]
+type = internal/network
+interface = enp1s0
+format-connected = <label-connected>
+format-connected-background = ${color.mf}
+format-connected-underline = ${color.bg}
+format-connected-overline = ${color.bg}
+format-connected-padding = 2
+format-connected-margin = 0
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${color.mf}
+format-disconnected-underline = ${color.bg}
+format-disconnected-overline = ${color.bg}
+format-disconnected-padding = 2
+format-disconnected-margin = 0
+label-connected = 
+label-connected-foreground = ${color.ac}
+label-disconnected = 
+
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+format-connected = <label-connected>
+format-connected-background = ${color.mf}
+format-connected-underline = ${color.bg}
+format-connected-overline = ${color.bg}
+format-connected-padding = 2
+format-connected-margin = 0
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${color.mf}
+format-disconnected-underline = ${color.bg}
+format-disconnected-overline = ${color.bg}
+format-disconnected-padding = 2
+format-disconnected-margin = 0
+label-connected = 
+label-connected-foreground = ${color.ac}
+label-disconnected = 
+
+[module/sysmenu]
+type = custom/text
+content = 
+content-background = ${color.bg}
+content-foreground = ${color.fg}
+content-padding = 4
+click-left = ~/.config/polybar/scripts/powermenu
+
+[module/play]
+type = custom/script
+exec = sh ~/.config/polybar/scripts/player
+tail = true
+label-padding = 1
+label-foreground = $(color.fg)
+label = %{A1: playerctl previous &:}%{A} %{A1:playerctl play-pause:}%output:0:1%%{A} %{A1: playerctl next &:}%{A} 
+
+[module/play-title]
+type = custom/script
+exec = sh ~/.config/polybar/scripts/player-title 
+tail = true
+label-padding-right = 4
+label-foreground = $(color.fg)
+label =%{A1: sh ~/.config/polybar/scripts/youtube-notify:} %output:0:25:..%%{A}

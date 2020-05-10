@@ -1,0 +1,15 @@
+#!/usr/bin/env bash 
+playerctl status  --follow 2>/dev/null |
+	while IFS= read -r line
+	do
+		if [[ $line = "Playing" ]]; then
+			echo " "
+			echo "$(playerctl metadata title)" > /tmp/test
+		elif [[ $line = "Paused" ]]; then
+			echo " "
+			echo "$(playerctl metadata title)" > /tmp/test
+		else 
+			echo " not playing"
+		fi
+	done
+
