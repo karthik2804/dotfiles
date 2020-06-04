@@ -183,7 +183,7 @@ bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'm
 #				position top
 #}
 
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper-green.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 exec_always --no-startup-id  ~/.config/polybar/launch.sh
 exec picom --experimental-backends
 

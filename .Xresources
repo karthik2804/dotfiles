@@ -1,0 +1,82 @@
+URxvt.scrollBar: false
+!URxvt.transparent: true
+!URxvt.shading: 20
+
+!URxvt.tintColor: #172A47
+!URxvt.inheritPixmap: true
+URxvt.depth: 32
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+URxvt.iso14755: False
+
+
+!Fonts
+
+URxvt.font: xft:monospace:pixelsize=12,style=regular
+URxvt.boldFont: xft:monospace:pixelsize=12,style=bold
+URxvt.letterSpace: -1
+
+
+Xft.dpi: 96
+Xft.antialias: true
+!Xft.rbga: none
+Xft.hintstyle: hintfull
+Xft.hinting: true
+
+*.internalBorder: 13
+
+
+! special
+!URxvt.foreground:   #placeholder
+!doesnt work because URxvt.transparent and tintcolor
+
+! special
+!*.foreground:   #70ef6e
+!*.foreground: #99ddff
+*.foreground: #d8d8d8
+
+!*.background:   [75]#172a47
+*.background: [75]#0f0f0f
+*.cursorColor:  #8aeff4
+
+
+
+
+! 1
+*.color0:       #0f0f0f
+*.color8:       #717f7f
+
+! 2
+*.color1:       #d51514
+*.color9:       #ad3527
+
+! 3 - Green 
+*.color2:		#10db15
+!	Name modifier
+*.color10:      #19c78a
+
+! 4 -
+*.color3:       #dd6a00
+
+*.color11:      #e4ab44
+
+
+! 5 -
+*.color4:       #188ddd
+!FOLDERS
+*.color12:      #379fd4
+
+
+! 6 - 
+*.color5:       #8a52a5
+*.color13:      #7f3e9c
+
+! cyan
+*.color6:       #8c51a5
+*.color14:      #15ae8f
+
+! white (directory thing in username header)
+*.color7:       #e4e4e4
+*.color15:      #e5e7e6

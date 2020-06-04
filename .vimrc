@@ -6,7 +6,7 @@ let mapleader=" "
 
 " Colours {
 syntax enable
-"set background=dark
+set background=dark
 "set termguicolors
 colorscheme industry 
 " }
