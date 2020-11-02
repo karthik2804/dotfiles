@@ -12,6 +12,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 #polybar -rq tray &
 #polybar -rq i3 &
 #polybar -rq full &
-polybar -rq main &
+polybar -rq main & 
 
 echo "Polybar launched..."

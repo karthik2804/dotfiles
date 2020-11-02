@@ -3,6 +3,7 @@ playerctl status  --follow 2>/dev/null |
 	while IFS= read -r line
 	do
 		if [[ $line = "Playing" ]]; then
+			sh ~/.config/polybar/scripts/youtube-notify
 			echo "$(playerctl metadata title)"
 		elif [[ $line = "Paused" ]]; then
 			echo "$(playerctl metadata title)"

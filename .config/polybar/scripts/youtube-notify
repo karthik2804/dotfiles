@@ -1,8 +1,10 @@
 #!/bin/sh
+sleep 2
 url="$(strings ~/.config/BraveSoftware/Brave-Browser/Default/'Current Session' | grep -E '^https?://www.youtube.com/' | tail -n 1)"
 vid_id="$(echo $url | tr "?&" "\n\n" | grep "^v=" | cut -d "=" -f 2)"
 thumbnail_url="https://img.youtube.com/vi/$vid_id/mqdefault.jpg"
 echo $thumbnail_url
-curl "$thumbnail_url" -o /tmp/thumbnail.jpg
 title=$(playerctl metadata title)
-notify-send -i /tmp/thumbnail.jpg "$(playerctl metadata artist)" "https://youtube.com\n \n $title"
+curl "$thumbnail_url" -o /tmp/thumbnail.jpg 
+dunstify -i /tmp/thumbnail.jpg -r 2393 "$(playerctl metadata artist)" "https://youtube.com\n \n $title"
+
